@@ -4,7 +4,7 @@ get '/profile/:user_id' do
 end
 
 post '/profile/:user_id' do
-  @user = User.find(session[:user_id])
-  @user
-  redirect '/'
+  # @user = User.find(session[:user_id])
+  session[:user_id] = nil
+  redirect "/"
 end

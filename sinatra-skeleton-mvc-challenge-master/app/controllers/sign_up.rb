@@ -4,7 +4,7 @@ end
 
 post '/sign_up' do
   @user = User.new(name: params[:name], email: params[:email], password: params[:password])
-  if user.save
+  if @user.save
     status 200
     session[:user_id] = @user.id
     redirect "/profile/#{@user.id}"

@@ -1,5 +1,18 @@
-<p>Hello</p>
+<p>Hello <%= @user.name%></p>
 
-<form action="/profile/<%= @user.id%>" method="delete">
+
+<form action="/profile/<%= @user.id%>" method="post" class="tweet">
+  <input type="text" class='tweet_content' name="content" placeholder="write your tweet">
+  <input type="submit" class='create_tweet' value="tweet">
+</form>
+
+<div class="my_tweets">
+  <% @user.tweets.each do |tweet| %>
+    <p><%= tweet.content %></p>
+  <% end %>
+</div>
+
+<form action="/profile/<%= @user.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Logout">
 </form>

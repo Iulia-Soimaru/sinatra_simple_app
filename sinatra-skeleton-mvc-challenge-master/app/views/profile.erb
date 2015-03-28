@@ -7,7 +7,9 @@
 </form>
 
 <div class="my_tweets">
-
+  <% @user.tweets.each do |tweet| %>
+    <p><%= tweet.content %></p>
+  <% end %>
 </div>
 
 <form action="/profile/<%= @user.id%>" method="post">

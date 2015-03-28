@@ -6,11 +6,12 @@ end
 post '/profile/:user_id' do
   session[:user_id]
   #save the tweet (validation)
-  @tweet = Tweet.new(params[:tweet])
+  content_type :json
+  @tweet = Tweet.new(content: params[:tweet_content], user_id: session[:user_id])
+  @user = User.find(session[:user_id])
   if @tweet.save
     status 200
-    content_type :json
-    {tweet_content: @tweet}.to_json
+    {tweet_content: @tweet.content}.to_json
     # @tweet.to_json
     # return 200 and the tweet
   else

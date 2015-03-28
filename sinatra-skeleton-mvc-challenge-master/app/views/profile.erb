@@ -6,13 +6,14 @@
   <input type="submit" class='create_tweet' value="tweet">
 </form>
 
+<form action="/logout" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="Logout">
+</form>
+
+
 <div class="my_tweets">
   <% @user.tweets.each do |tweet| %>
     <p><%= tweet.content %></p>
   <% end %>
 </div>
-
-<form action="/profile/<%= @user.id%>" method="post">
-  <input type="hidden" name="_method" value="put">
-  <input type="submit" value="Logout">
-</form>

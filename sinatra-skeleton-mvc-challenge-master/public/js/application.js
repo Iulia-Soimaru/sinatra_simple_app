@@ -1,4 +1,4 @@
-// var keep_data;
+var keep_data;
 $(document).ready(function() {
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
@@ -17,6 +17,7 @@ $(document).ready(function() {
         type: 'POST',
         data: {tweet_content: $('.tweet_content').val()}
       }).done(function(data){
+        keep_data = data;
         $('.my_tweets').prepend('<p>'+ data.tweet_content + '</p>'),
         $('.tweet_content').val("")
         // console.log(data.tweet_content)

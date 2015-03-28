@@ -1,9 +1,9 @@
 <p>Hello <%= @user.name%></p>
 
 
-<form action="/profile/<%= @user.id%>" method="post">
+<form action="/profile/<%= @user.id%>" method="post" class="tweet">
   <input type="text" name="content" placeholder="write your tweet">
-  <input type="submit" class="tweet" value="tweet">
+  <input type="submit" class='create_tweet' value="tweet">
 </form>
 
 <form action="/profile/<%= @user.id%>" method="post">

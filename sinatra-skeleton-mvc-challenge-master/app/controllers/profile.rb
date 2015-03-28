@@ -22,9 +22,9 @@ post '/profile/:user_id' do
   end
 end
 
-delete '/profile/:user_id' do
+put '/profile/:user_id' do
   # @user = User.find(session[:user_id])
-  @user = User.find(params[:user_id])
+  # @user = User.find(params[:user_id])
   params[:user_id] = nil
   redirect "/"
 end

@@ -2,9 +2,13 @@
 
 
 <form action="/profile/<%= @user.id%>" method="post" class="tweet">
-  <input type="text" name="content" placeholder="write your tweet">
+  <input type="text" class='tweet_content' name="content" placeholder="write your tweet">
   <input type="submit" class='create_tweet' value="tweet">
 </form>
+
+<div class="my_tweets">
+
+</div>
 
 <form action="/profile/<%= @user.id%>" method="post">
   <input type="hidden" name="_method" value="delete">

@@ -7,20 +7,28 @@ $(document).ready(function() {
 
 
 
-    $('form').on('submit', function(event){
+    $('.create_tweet').click(function(event){
       event.preventDefault();
 
-      // $('form').child('.create_tweet')
-      var link = $('form').attr('action');
-      $.ajax({
-        url: link,
-        data: {content: $('.tweet .create_tweet').val()},
-        method: 'post',
-        success: function(response){
-          $('body').append(response);
-          $('.create_tweet').text('');
-        }
+      var ajaxRequest = $.ajax({
+        url: $('.tweet').attr('action'),
+        type: 'POST'
+      }).done(function(response){
+        console.log(response.tweet_content.content)
       })
+      // console.log($('.tweet_content').val())
+
+      // $('form').child('.create_tweet')
+      // var link = $('form').attr('action');
+      // $.ajax({
+      //   url: link,
+      //   data: {content: $('.tweet .create_tweet').val()},
+      //   method: 'post',
+      //   success: function(response){
+      //     $('body').append(response);
+      //     $('.create_tweet').text('');
+      //   }
+      // })
     })
 
 
